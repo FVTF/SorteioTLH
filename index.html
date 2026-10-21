@@ -520,7 +520,7 @@ function renderKiosk(){
     const next = S.days.find(x=>x.estado==="porAbrir");
     const allDone = S.days.every(x=>x.estado==="fechado");
     $("closedTitle").textContent = allDone ? "Obrigado pela visita!" : "Os registos abrem em breve";
-    $("closedText").textContent = allDone ? "Os registos terminaram. O vencedor do Voucher Estadia é contactado por e-mail." : "Volta a passar pelo nosso espaço nestes horários.";
+    $("closedText").textContent = allDone ? "Os registos terminaram. O vencedor do Voucher Estadia é contactado por e-mail." : "Volte a passar pelo nosso espaço nestes horários.";
     $("sched").innerHTML = allDone ? "" : DAYS.filter(c=>dayState(c.id).estado!=="fechado").map(c=>`<div><b>${c.nome}</b><span>${h(c.ini)} – ${h(c.fim)}</span></div>`).join("");
   }
 }
