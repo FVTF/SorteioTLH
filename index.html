@@ -231,11 +231,11 @@ td.id{color:var(--muted);font-variant-numeric:tabular-nums}
   <section class="reg" id="reg" hidden>
     <div class="intro">
       <span class="eyebrow">Sorteio The Lince Hotels</span>
-      <h1>Regista-te e descobre na hora se ganhaste</h1>
+      <h1>Registe-se e descubra se temos um presente para ti</h1>
     </div>
 
     <form class="card" id="form" novalidate>
-      <h2>Os teus dados</h2>
+      <h2>Os seus dados</h2>
       <div class="field"><label for="f-nome">Nome</label>
         <input type="text" id="f-nome" autocomplete="off" autocapitalize="words" maxlength="80"><div class="err" id="e-nome"></div></div>
       <div class="field"><label for="f-email">E-mail</label>
@@ -247,7 +247,7 @@ td.id{color:var(--muted);font-variant-numeric:tabular-nums}
       <div class="err" id="e-rgpd"></div>
       <label class="check" for="f-news"><input type="checkbox" id="f-news">
         <span>Quero receber a newsletter The Lince Hotels por e-mail, com novidades e ofertas. Posso cancelar a qualquer momento. <em>Opcional</em></span></label>
-      <button class="btn" type="submit" id="submit">Registar e descobrir o meu prémio</button>
+      <button class="btn" type="submit" id="submit">Participar e descobrir</button>
       <p class="fine">Um registo por pessoa durante todo o evento.</p>
     </form>
   </section>
@@ -262,9 +262,9 @@ td.id{color:var(--muted);font-variant-numeric:tabular-nums}
       <h1 id="playTitle">A sorte está a decidir…</h1>
     </div>
     <div class="tiles" id="tiles">
-      <div class="tile" data-k="garrafa"><svg><use href="#i-garrafa"/></svg><span>Garrafa de água TLH</span></div>
+      <div class="tile" data-k="garrafa"><svg><use href="#i-garrafa"/></svg><span>Garrafa TLH</span></div>
       <div class="tile" data-k="caneta"><svg><use href="#i-caneta"/></svg><span>Caneta TLH</span></div>
-      <div class="tile" data-k="leque"><svg><use href="#i-leque"/></svg><span>Leque</span></div>
+      <div class="tile" data-k="leque"><svg><use href="#i-leque"/></svg><span>Leque TLH</span></div>
       <div class="tile" data-k="voucher"><svg><use href="#i-voucher"/></svg><span>Voucher Experiência</span></div>
       <div class="tile" data-k="nada"><svg><use href="#i-nada"/></svg><span>Desta vez não</span></div>
     </div>
@@ -599,8 +599,8 @@ function showResult(pp){
   } else if(pp.premio === "nada"){
     $("playEyebrow").textContent = "Sorteio na hora";
     $("playTitle").textContent = NADA_TITLES[rint(NADA_TITLES.length)];
-    R.innerHTML = `<p>Mas não vás já embora, ${n}: com este registo entras automaticamente n${vouchers}.</p>
-      <p class="also">Se a sorte te escolher, o voucher chega ao teu e-mail.</p>
+    R.innerHTML = `<p>Desta vez não ganhou um brinde, mas a sua próxima estadia ainda pode ser uma oferta The Lince</p>
+      <p class="also">Se a sorte o escolher, o voucher chega ao seu e-mail.</p>
       <button class="btn" id="playDone" type="button">Concluir</button>
       <span class="fine" id="playCount"></span>`;
     let s = 15; const tick = () => { const c=$("playCount"); if(!c) return; c.textContent = `Este ecrã fecha sozinho em ${s} s`; if(s--<=0) endPlay(); else playTimer=setTimeout(tick,1000); };
@@ -608,8 +608,8 @@ function showResult(pp){
   } else {
     $("playEyebrow").textContent = "Parabéns";
     $("playTitle").textContent = `Parabéns, ${first(pp.nome)}! Ganhaste ${ITEMS[pp.premio].com}`;
-    R.innerHTML = `<p class="pickup">Mostra este ecrã à nossa equipa para levantares o teu prémio.</p>
-      <p class="also">E a sorte pode não ficar por aqui: estás também n${vouchers}.</p>
+    R.innerHTML = `<p class="pickup">Mostre este ecrã à nossa equipa para levantar o seu prémio.</p>
+      <p class="also">E a sorte pode não ficar por aqui: está também n${vouchers}.</p>
       <button class="btn gold" id="playDone" type="button">Prémio entregue</button>
       <span class="badge">Registo Nº ${pad4(pp.num)}</span>`;
     confetti();
